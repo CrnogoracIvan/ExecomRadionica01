@@ -1,4 +1,4 @@
-package com.example.ivancrnogorac.execomraddionica01.UserAdapter;
+package com.example.ivancrnogorac.execomraddionica01.adapter;
 
 import android.content.Context;
 import android.view.ViewGroup;
@@ -17,11 +17,10 @@ import java.util.List;
 
 public class UserAdapter extends RecyclerViewerAdapterBase<User, UserItemView> {
     private final UserSelectedInterface userSelectedListener;
-    public UserAdapter(Context context, List<User> items, UserSelectedInterface userSelectedListener){
-        super(context);
 
-           // this.items.add(user);
-            this.userSelectedListener = userSelectedListener;
+    public UserAdapter(Context context, List<User> items, UserSelectedInterface userSelectedListener){
+        super(context, items);
+        this.userSelectedListener = userSelectedListener;
     }
 
     @Override
@@ -31,8 +30,8 @@ public class UserAdapter extends RecyclerViewerAdapterBase<User, UserItemView> {
 
     @Override
     public void onBindViewHolder(ViewWrapper<UserItemView> viewHolder, int position) {
-        UserItemView view = viewHolder.getView();
-        User user = items.get(position);
+        final UserItemView view = viewHolder.getView();
+        final User user = items.get(position);
 
         view.bind(user);
     }

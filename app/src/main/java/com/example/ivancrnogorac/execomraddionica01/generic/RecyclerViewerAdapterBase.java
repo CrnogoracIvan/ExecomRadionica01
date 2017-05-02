@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.ivancrnogorac.execomraddionica01.model.User;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,13 +15,12 @@ import java.util.List;
  */
 
 
-
 public abstract class RecyclerViewerAdapterBase<T, V extends View> extends RecyclerView.Adapter<ViewWrapper<V>> {
 
     protected final List<T> items = new ArrayList<T>();
     protected final Context context;
 
-    protected RecyclerViewerAdapterBase(Context context) {
+    protected RecyclerViewerAdapterBase(Context context, List<User> items) {
         this.context = context;
     }
 
